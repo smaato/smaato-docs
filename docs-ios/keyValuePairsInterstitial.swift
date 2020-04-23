@@ -19,6 +19,6 @@ class ViewController: UIViewController {
         SMAInterstitial.keyValuePairs = KVP
    
         // Send request, after replacing with your 'AdSpaceID' configured in your SPX account.        
-        SmaatoSDK.loadInterstitial(forAdSpaceId: "AdSpaceID", delegate: self)
+        SmaatoSDK.loadInterstitial(forAdSpaceId: "SMAATO_ADSPACE_ID", delegate: self)
     }
 }
