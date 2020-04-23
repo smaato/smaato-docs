@@ -19,10 +19,10 @@ public class YourApplication extends Application {
                 .setHttpsOnly(true)
                 .build();
         // initialize the Smaato SDK
-        SmaatoSdk.init(this, config, "SMAATO_PUBLISHER_ID_HERE");
+        SmaatoSdk.init(this, config, "SMAATO_PUBLISHER_ID");
       
         // You can also initialize the Smaato SDK without configuration:
-        // SmaatoSdk.init(this, "1100042525");
+        // SmaatoSdk.init(this, "SMAATO_PUBLISHER_ID");
 
         // optional configuration
         SmaatoSdk.setSearchQuery("bitcoin, lamborghini, san-francisco");
