@@ -18,7 +18,7 @@
 		// (required) set the delegate
     	self.bannerView.delegate = self;     
 		// load the banner, with desired size
-    	[self.bannerView loadWithAdSpaceId:@"<SMAATO_ADSPACE_ID_HERE>" adSize:kSMABannerAdSizeXXLarge_320x50];
+    	[self.bannerView loadWithAdSpaceId:@"SMAATO_ADSPACE_ID" adSize:kSMABannerAdSizeXXLarge_320x50];
 }
 
 #pragma mark - <SMABannerViewDelegate>
