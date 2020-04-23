@@ -6,7 +6,7 @@
 @implementation AppDelegate
   
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    MPMoPubConfiguration *sdkConfig = [[MPMoPubConfiguration alloc] initWithAdUnitIdForAppInitialization:@ <AD_UNIT_ID>"];
+    MPMoPubConfiguration *sdkConfig = [[MPMoPubConfiguration alloc] initWithAdUnitIdForAppInitialization:@ "MOPUB_AD_UNIT_ID"];
  
     sdkConfig.globalMediationSettings = @[];
     sdkConfig.loggingLevel = MPBLogLevelInfo;
@@ -14,7 +14,7 @@
     sdkConfig.additionalNetworks = @[SMAMoPubBaseAdapterConfiguration.class];
      
     NSMutableDictionary *smaatoConfig = [NSMutableDictionary new];
-    [smaatoConfig setObject:@"<Publisher_Id>" forKey:@"publisherId"];
+    [smaatoConfig setObject:@"SMAATO_PUBLISHER_ID" forKey:@"publisherId"];
     [smaatoConfig setObject:@(YES) forKey:@"httpsOnly"];
     [smaatoConfig setObject:@(NO) forKey:@"loggingDisabled"];
     [smaatoConfig setObject:@(kSMALogLevelError) forKey:@"logLevel"];
