@@ -8,14 +8,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let sdkConfig = MPMoPubConfiguration(adUnitIdForAppInitialization: "<AD_UNIT_ID>")
+        let sdkConfig = MPMoPubConfiguration(adUnitIdForAppInitialization: "MOPUB_AD_UNIT_ID")
         sdkConfig.globalMediationSettings = []
         sdkConfig.loggingLevel = .info
         sdkConfig.allowLegitimateInterest = true
         sdkConfig.additionalNetworks = SMAMoPubBaseAdapterConfiguration()
         
         var smaatoConfig: [AnyHashable : Any] = [:]
-        smaatoConfig.setObject("Publisher_ID", forKey: "publisherId")
+        smaatoConfig.setObject("SMAATO_PUBLISHER_ID", forKey: "publisherId")
         smaatoConfig.setObject(true, forKey: "httpsOnly")
         smaatoConfig.setObject(false, forKey: "loggingDisabled")
         smaatoConfig.setObject(kSMALogLevelError, forKey: "logLevel")
