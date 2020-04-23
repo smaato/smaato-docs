@@ -22,7 +22,7 @@
     SMABannerView.keyValuePairs = KVP;
    
     // Send request, after replacing with your 'AdSpaceID' configured in your SPX account.
-    [self.bannerView loadWithAdSpaceId:@"AdSpaceID" adSize:kSMABannerAdSizeXXLarge_320x50];
+    [self.bannerView loadWithAdSpaceId:@"SMAATO_ADSPACE_ID" adSize:kSMABannerAdSizeXXLarge_320x50];
 }
    
 @end
