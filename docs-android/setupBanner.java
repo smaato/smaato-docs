@@ -19,7 +19,7 @@ public class YourActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // load banner with desired size
-        bannerView.loadAd("SMAATO_ADSPACE_ID_HERE", BannerAdSize.XX_LARGE_320x50);
+        bannerView.loadAd("SMAATO_ADSPACE_ID", BannerAdSize.XX_LARGE_320x50);
     }
   
   // You can also set BannerView.EventListener to listen to events describing the advertisement lifecycle:
