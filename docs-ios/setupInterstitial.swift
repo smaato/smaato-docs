@@ -13,7 +13,7 @@ class ViewController: UIViewController {
  
     func callWhenYouNeedInterstitial() {
          // load interstitial ad with desired ad size
-         SmaatoSDK.loadInterstitial(forAdSpaceId: "<SMAATO_ADSPACE_ID_HERE>", delegate: self)
+         SmaatoSDK.loadInterstitial(forAdSpaceId: "SMAATO_ADSPACE_ID", delegate: self)
     }
 }
  
