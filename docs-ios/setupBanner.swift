@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 		      // (required) set the delegate
     	   bannerView.delegate = self
 		      // load the banner, with desired size
-    	   bannerView.load(withAdSpaceId: "<SMAATO_ADSPACE_ID_HERE>", adSize: .xxLarge_320x50)
+    	   bannerView.load(withAdSpaceId: "SMAATO_ADSPACE_ID", adSize: .xxLarge_320x50)
     }
 }
  
