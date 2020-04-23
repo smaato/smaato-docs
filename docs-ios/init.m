@@ -6,7 +6,7 @@
  
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {   
     // initialize SDK first!    
-    SMAConfiguration *config = [[SMAConfiguration alloc] initWithPublisherId:@"<SMAATO_PUBLISHER_ID_HERE>"];
+    SMAConfiguration *config = [[SMAConfiguration alloc] initWithPublisherId:@"SMAATO_PUBLISHER_ID_HERE"];
 	// allow HTTPS traffic only
     config.httpsOnly = YES;                 
 	// log errors only
