@@ -14,7 +14,7 @@ class ViewController: UIViewController {
  
     func callWhenYouNeedRewardedVideo() {
         // load rewarded ad with desired ad size
-        SmaatoSDK.loadRewardedInterstitial(forAdSpaceId: "<SMAATO_ADSPACE_ID_HERE>", delegate: self)
+        SmaatoSDK.loadRewardedInterstitial(forAdSpaceId: "SMAATO_ADSPACE_ID", delegate: self)
     }
 }
  
