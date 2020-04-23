@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // initialize SDK!        
-        guard let config = SMAConfiguration(publisherId: "SMAATO_PUBLISHER_ID_HERE") else {
+        guard let config = SMAConfiguration(publisherId: "SMAATO_PUBLISHER_ID") else {
               fatalError("SDK config is nil!")
         }
 		// allow HTTPS traffic only
