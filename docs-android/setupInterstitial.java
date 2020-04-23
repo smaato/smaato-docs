@@ -19,7 +19,7 @@ public class YourActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // load interstitial ad
-        Interstitial.loadAd("SMAATO_ADSPACE_ID_HERE", eventListener);
+        Interstitial.loadAd("SMAATO_ADSPACE_ID", eventListener);
 
     }
   
