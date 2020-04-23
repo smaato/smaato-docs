@@ -19,7 +19,7 @@ public class YourActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         // load rewarded ad
-        RewardedInterstitial.loadAd("SMAATO_ADSPACE_ID_HERE", eventListener);
+        RewardedInterstitial.loadAd("SMAATO_ADSPACE_ID", eventListener);
 
     }
   
