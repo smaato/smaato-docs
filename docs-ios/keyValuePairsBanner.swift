@@ -17,6 +17,6 @@ class ViewController: UIViewController {
         SMABannerView.keyValuePairs = KVP
    
         // Send request, after replacing with your 'AdSpaceID' configured in your SPX account.        
-        self.bannerView?.load(withAdSpaceId: "AdSpaceID", adSize: .xxLarge_320x50)
+        self.bannerView?.load(withAdSpaceId: "SMAATO_ADSPACE_ID", adSize: .xxLarge_320x50)
     }
 }
