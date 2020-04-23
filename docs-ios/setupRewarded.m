@@ -18,7 +18,7 @@
  
  - (void)callWhenYouNeedRewardedVideo {
     // load rewarded ad with desired ad size
-    [SmaatoSDK loadRewardedInterstitialForAdSpaceId:@"<SMAATO_ADSPACE_ID_HERE>" delegate:self];
+    [SmaatoSDK loadRewardedInterstitialForAdSpaceId:@"SMAATO_ADSPACE_ID" delegate:self];
 }
 
 // Rewarded Video successfully loaded
