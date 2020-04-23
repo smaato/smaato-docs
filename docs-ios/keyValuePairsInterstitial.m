@@ -22,7 +22,7 @@
     SMAInterstitial.keyValuePairs = KVP;
  
     // Send request, after replacing with your 'AdSpaceID' configured in your SPX account.
-    [SmaatoSDK loadInterstitialForAdSpaceId:@"AdSpaceID" delegate:self];
+    [SmaatoSDK loadInterstitialForAdSpaceId:@"SMAATO_ADSPACE_ID" delegate:self];
 }
    
 @end
