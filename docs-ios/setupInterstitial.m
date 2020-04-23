@@ -17,7 +17,7 @@
  
  - (void)callWhenYouNeedInterstitial {
     // load interstitial ad with desired ad size
-    [SmaatoSDK loadInterstitialForAdSpaceId:@"<SMAATO_ADSPACE_ID_HERE>" delegate:self];
+    [SmaatoSDK loadInterstitialForAdSpaceId:@"SMAATO_ADSPACE_ID" delegate:self];
 }
  
 // Interstitial successfully loaded
