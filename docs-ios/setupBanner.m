@@ -27,6 +27,16 @@
 - (UIViewController *)presentingViewControllerForBannerView:(SMABannerView *)bannerView {
     return self;
 }
+
+// check if banner has loaded successfully
+- (void)bannerViewDidLoad:(SMABannerView *)bannerView {
+   NSLog(@"Banner has loaded successfully!");
+}
+
+// check if banner failed to load
+- (void)didFailWithError:(SMABannerView *)bannerView :(Error *)error {
+   NSLog(@"Banner failed to load with error: \(error.localizedDescription)");
+}
  
 // notification callback: ads TTL has expired
 - (void)bannerViewDidTTLExpire:(SMABannerView *)bannerView {
