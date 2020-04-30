@@ -22,6 +22,16 @@ extension ViewController: SMABannerViewDelegate {
    func presentingViewController(for bannerView: SMABannerView) -> UIViewController {
         return self
    }
+   
+   // check if banner loaded successfully
+   func bannerViewDidLoad(_ bannerView: SMABannerView) {
+        print("Banner has loaded successfully!")
+   }
+    
+   // check if banner failed to load
+   func bannerView(_ bannerView: SMABannerView, didFailWithError error: Error) {
+        print("Banner failed to load with error: \(error.localizedDescription)")
+   }
  
    // notification callback: ads TTL has expired
    func bannerViewDidTTLExpire(_ bannerView: SMABannerView) {
