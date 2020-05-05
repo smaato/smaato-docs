@@ -27,6 +27,7 @@ public class YourActivity extends Activity {
        @Override
        //show interstitial ad when it loaded successfully
        public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+          interstitialAd.setBackgroundColor(0xff123456);
           interstitialAd.showAd(YOUR_ACTIVITY_HERE);
        }
 
