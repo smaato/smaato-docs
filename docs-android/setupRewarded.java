@@ -36,7 +36,7 @@ public class YourActivity extends Activity {
     
     @Override
     // rewarded ad had an unexpected error
-    public void onAdError(@NonNull RewardedInterstitialAd rewardedInterstitialAd, @NonNull RewardedError rewardedError {}
+    public void onAdError(@NonNull RewardedInterstitialAd rewardedInterstitialAd, @NonNull RewardedError rewardedError) {}
   
     @Override
     // rewarded ad was closed by the user
