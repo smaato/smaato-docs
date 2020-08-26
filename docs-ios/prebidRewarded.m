@@ -1,8 +1,8 @@
-[MPRewardedVideo setDelegate:self forAdUnitId:@"<MOPUB_ADUNIT_ID>"];
-[SmaatoSDK prebidRewardedInterstitialForAdSpaceId:@"<SMAATO_ADSPACE_ID>"
+[MPRewardedVideo setDelegate:self forAdUnitId:@"MOPUB_ADUNIT_ID"];
+[SmaatoSDK prebidRewardedInterstitialForAdSpaceId:@"SMAATO_ADSPACE_ID"
                                        completion:^(SMAUbBid * _Nullable bid, NSError * _Nullable error) {
-    NSString *keywords = @"<SOME-OTHER-BID-KEYWORDS>"; // could be nil
-    NSDictionary *bidExtra = @{@"<SOME-OTHER-KEY>" : @"<SOME-OTHER-VALUE>"}; // could be nil
+    NSString *keywords = @"SOME-OTHER-BID-KEYWORDS"; // could be nil
+    NSDictionary *bidExtra = @{@"SOME-OTHER-KEY" : @"SOME-OTHER-VALUE"}; // could be nil
     if (bid) {
         // Let's assume this is the max price
         CGFloat maxPrice = 0.1;
@@ -23,7 +23,7 @@
             bidExtra = bid.metaData;
         }
     }
-    [MPRewardedVideo loadRewardedVideoAdWithAdUnitID:@"<MOPUB_ADUNIT_ID>"
+    [MPRewardedVideo loadRewardedVideoAdWithAdUnitID:@"MOPUB_ADUNIT_ID"
                                             keywords:keywords
                                     userDataKeywords:nil
                                             location:nil
