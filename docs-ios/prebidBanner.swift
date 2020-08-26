@@ -2,7 +2,7 @@ guard let adView = MPAdView(adUnitId: "a27e026a62d54d5ba59486ef6d63406c", size: 
     return
 }
 adView.delegate = self
-SmaatoSDK.prebidBanner(forAdSpaceId: "<SMAATO_ADSPACE_ID>",
+SmaatoSDK.prebidBanner(forAdSpaceId: "SMAATO_ADSPACE_ID",
                          bannerSize: .xxLarge_320x50) {(bid: SMAUbBid?, error: Error?) in
     if let smaatoBid = bid {
         // Let's assume this is the max price
