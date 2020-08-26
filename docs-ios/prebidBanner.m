@@ -1,6 +1,6 @@
-MPAdView *adView = [[MPAdView alloc] initWithAdUnitId:@"<MOPUB_ADUNIT_ID>" size:MOPUB_BANNER_SIZE];
+MPAdView *adView = [[MPAdView alloc] initWithAdUnitId:@"MOPUB_ADUNIT_ID" size:MOPUB_BANNER_SIZE];
 adView.delegate = self;
-[SmaatoSDK prebidBannerForAdSpaceId:@"<SMAATO_ADSPACE_ID>"
+[SmaatoSDK prebidBannerForAdSpaceId:@"SMAATO_ADSPACE_ID"
                          bannerSize:kSMAUbBannerSizeXXLarge_320x50
                          completion:^(SMAUbBid * _Nullable bid, NSError * _Nullable error) {
     if (bid) {
