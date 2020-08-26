@@ -1,8 +1,8 @@
-guard let adInterstitial = MPInterstitialAdController.init(forAdUnitId: "<MOPUB_ADUNIT>") else {
+guard let adInterstitial = MPInterstitialAdController.init(forAdUnitId: "MOPUB_ADUNIT") else {
     return
 }
 adInterstitial.delegate = self
-SmaatoSDK.prebidInterstitial(forAdSpaceId: "<SMAATO_ADSPACE_ID>") { (bid: SMAUbBid?, error: Error?) in
+SmaatoSDK.prebidInterstitial(forAdSpaceId: "SMAATO_ADSPACE_ID") { (bid: SMAUbBid?, error: Error?) in
    if let smaatoBid = bid {
        // Let's assume this is the max price
        let maxPrice : CGFloat = 0.1
