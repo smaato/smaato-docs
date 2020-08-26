@@ -1,6 +1,6 @@
-MPInterstitialAdController *adInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:@"<MOPUB_ADUNIT_ID>"];
+MPInterstitialAdController *adInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:@"MOPUB_ADUNIT_ID"];
 adInterstitial.delegate = self;
-[SmaatoSDK prebidInterstitialForAdSpaceId:@"<SMAATO_ADSPACE_ID>"
+[SmaatoSDK prebidInterstitialForAdSpaceId:@"SMAATO_ADSPACE_ID"
                                completion:^(SMAUbBid * _Nullable bid, NSError * _Nullable error) {
     if (bid) {
         // Let's assume this is the max price
