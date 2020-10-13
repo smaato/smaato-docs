@@ -10,13 +10,14 @@ import com.smaato.sdk.banner.widget.BannerView;
 
 public class YourActivity extends Activity {
 
-    // find bannerView you setup in your activity.xml
-    BannerView bannerView = (BannerView) findViewById(R.id.bannerView);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // find bannerView you setup in your activity.xml
+        BannerView bannerView = (BannerView) findViewById(R.id.bannerView);
 
         // load banner with desired size
         bannerView.loadAd("SMAATO_ADSPACE_ID", BannerAdSize.XX_LARGE_320x50);
