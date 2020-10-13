@@ -28,7 +28,7 @@ class YourActivity extends Activity {
         request.builder().shouldReturnUrlsForImageAssets(false); // if manually rendering
         // if auto-rendering, set above value to true
 
-        // load rewarded ad
+        // load native ad
         NativeAd.loadAd(com.smaato.sdk.sys.Lifecycling.of(this), request, listener);
     }
 
