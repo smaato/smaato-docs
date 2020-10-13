@@ -16,13 +16,12 @@ import com.smaato.sdk.nativead.NativeAdView;
 
 class YourActivity extends Activity {
 
+    NativeAdRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        NativeAdRequest request;
 
         request.builder().adSpaceId("130783664");
         request.builder().shouldReturnUrlsForImageAssets(false); // if manually rendering
