@@ -3,7 +3,7 @@ import android.preference.PreferenceManager;
 
 ...
 // User is not subject to GDPR
-SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context)
+SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(context_here);
 SharedPreferences.Editor editor = sharedPref.edit();
 editor.putString("IABConsent_SubjectToGDPR", "0");
 editor.commit();
