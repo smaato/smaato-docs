@@ -2,8 +2,8 @@
 #import "ViewController.h"
 @import SmaatoSDKInterstitial;
  
-// declare the AppDelegate to conform the SMAInterstitialDelegate protocol
-@interface AppDelegate () <SMAInterstitialDelegate>
+// declare the ViewController to conform the SMAInterstitialDelegate protocol
+@interface ViewController () <SMAInterstitialDelegate>
 @property (nonatomic, strong) SMAInterstitial *interstitial;
 @end
  
