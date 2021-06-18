@@ -14,21 +14,5 @@
     requestParams.isSplash = YES;
     [SmaatoSDK loadInterstitialForAdSpaceId:@"SMAATO_ADSPACE_ID" delegate:self requestParams:requestParams];
 }
-
-// Interstitial did successfully loaded
-- (void)interstitialDidLoad:(SMAInterstitial *)interstitial {
-    self.interstitial = interstitial;
-    [self.interstitial showFromViewController:self];
-}
-  
-// Interstitial did fail loading
-- (void)interstitial:(SMAInterstitial *)interstitial didFailWithError:(NSError *)error {
-    NSLog(@"Interstitial did fail loading with error: %@", error.localizedDescription);
-}
- 
-// Interstitial ads TTL has expired
-- (void)interstitialDidTTLExpire:(SMAInterstitial *)interstitial {
-    NSLog(@"Interstitial TTL has expired");
-}
  
 @end
