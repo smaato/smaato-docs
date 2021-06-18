@@ -1,9 +1,5 @@
 public class SplashAdActivity extends SmaatoSplashActivity {
  
-    class MyEventListener extends EventListener {
-        ...
-    }
- 
     @NonNull
     @Override
     protected String getAdSpaceId() {
@@ -16,8 +12,4 @@ public class SplashAdActivity extends SmaatoSplashActivity {
         return MainActivity.class;
     }
  
-    @Override
-    protected EventListener getEventListener() {
-        return new MyEventListener();
-    }
 }
