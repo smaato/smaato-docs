@@ -5,7 +5,7 @@
 // declare the ViewController to conform the SMABannerViewDelegate protocol
  
 @interface ViewController () <SMABannerViewDelegate>
-	// get the Smaato banner view from the interface
+	// get the Smaato outstream view from the interface
  @property (nonatomic, weak) IBOutlet SMAOutstreamView *outstreamView;
 @end
  
@@ -15,7 +15,7 @@
     [super viewDidLoad]; 
 		// (required) set the delegate
     	self.outstreamView.delegate = self;    
-		// load the banner, with desired size
+		// load the outstream view, with desired size
     	[self.outstreamView loadWithAdSpaceId:@"SMAATO_ADSPACE_ID"
                                 outstreamAdSize:kSMAOutstreamAdSizeRectangle_300x300];
 }
@@ -27,19 +27,19 @@
     return self;
 }
 
-// check if banner has loaded successfully
+// check if outstream ad has loaded successfully
 - (void)bannerViewDidLoad:(SMABannerView *)bannerView {
-   NSLog(@"Banner has loaded successfully!");
+   NSLog(@"Outstream ad has loaded successfully!");
 }
 
-// check if banner failed to load
+// check if outstream ad failed to load
 - (void)didFailWithError:(SMABannerView *)bannerView :(Error *)error {
-   NSLog(@"Banner failed to load with error: \(error.localizedDescription)");
+   NSLog(@"Outstream ad failed to load with error: \(error.localizedDescription)");
 }
  
 // notification callback: ads TTL has expired
 - (void)bannerViewDidTTLExpire:(SMABannerView *)bannerView {
-    NSLog(@"Banner TTL has expired. You should load new one.");
+    NSLog(@"Outstream TTL has expired. You should load new one.");
 }
 
 @end
