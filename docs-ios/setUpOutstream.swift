@@ -1,5 +1,6 @@
 // ViewController.swift
 import UIKit
+import SmaatoSDKBanner
 import SmaatoSDKOutstream
  
 class ViewController: UIViewController { 
