@@ -1,5 +1,6 @@
 // ViewController.m
 #import "ViewController.h"
+@import SmaatoSDKBanner;
 @import SmaatoSDKOutstream;
  
 // declare the ViewController to conform the SMABannerViewDelegate protocol
