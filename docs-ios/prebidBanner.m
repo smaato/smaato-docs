@@ -1,5 +1,7 @@
-MPAdView *adView = [[MPAdView alloc] initWithAdUnitId:@"MOPUB_ADUNIT_ID" size:MOPUB_BANNER_SIZE];
-adView.delegate = self;
+GAMBannerView *bannerView = [[GAMBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+bannerView.adUnitID = @"YOUR_GAM_AD_UNIT_ID";
+bannerView.rootViewController = self;
+bannerView.delegate = self;
 [SmaatoSDK prebidBannerForAdSpaceId:@"SMAATO_ADSPACE_ID"
                          bannerSize:kSMAUbBannerSizeXXLarge_320x50
                          completion:^(SMAUbBid * _Nullable bid, NSError * _Nullable error) {
@@ -14,16 +16,9 @@ adView.delegate = self;
             bidKeyword = bid.mopubPrebidKeyword;
         }
                 
-        NSString *adViewKeywords = adView.keywords;
-        adViewKeywords = adViewKeywords ? [NSString stringWithFormat:@"%@,%@", adViewKeywords, bidKeyword] : bidKeyword;
-        adView.keywords = adViewKeywords;
-        if (self.adView.localExtras) {
-            NSMutableDictionary *extras = [NSMutableDictionary dictionaryWithDictionary:self.adView.localExtras];
-            [extras addEntriesFromDictionary:bid.metaData];
-            self.adView.localExtras = extras;
-        } else {
-            self.adView.localExtras = bid.metaData;
-        }
+        GAMRequest kvpRequest = [GAMRequest request];
+        NSDictionary *ubKVP = @{@"smaub":bidKeyword};
+        kvpRequest.customTargeting = ubKVP;
     }
-    [adView loadAd];  
+    [self.bannerView loadRequest: kvpRequest]; 
 }];
