@@ -1,11 +1,11 @@
-guard let adView = MPAdView(adUnitId: "a27e026a62d54d5ba59486ef6d63406c", size: MOPUB_BANNER_SIZE) else {
-    return
-}
-adView.delegate = self
+var bannerView = GAMBannerView(adSize: kGADAdSizeBanner)
+bannerView.adUnitID = "YOUR_GAM_AD_UNIT_ID"
+bannerView.rootViewController = self
+bannerView.delegate = self
 SmaatoSDK.prebidBanner(forAdSpaceId: "SMAATO_ADSPACE_ID",
                          bannerSize: .xxLarge_320x50) {(bid: SMAUbBid?, error: Error?) in
     if let smaatoBid = bid {
-        // Let's assume this is the max price
+        // Let's assume this is the max price of your line items (you will want to change this float to yours)
         let maxPrice : CGFloat = 0.1
         let bidKeyword : String
         
@@ -15,18 +15,11 @@ SmaatoSDK.prebidBanner(forAdSpaceId: "SMAATO_ADSPACE_ID",
         } else {
             bidKeyword = smaatoBid.mopubPrebidKeyword
         }
-        // or manual something like `let bidKeyword = "smaato" + "-" + "\(smaatoBid.bidPrice * 100)"`
-        if let adViewKeywords = adView.keywords {                                       
-            adView.keywords = adViewKeywords + ",\(bidKeyword)"
-        } else {
-            adView.keywords = bidKeyword
-        }
-        // `smaatoBid.metaData` contains unique bid identifier, which is used for creative fetching from cache, if Smaato's bid wins
-        if let adLocalExtras = adView.localExtras {
-            adView.localExtras = adLocalExtras.merging(smaatoBid.metaData) { $1 }
-        } else {
-            adView.localExtras = smaatoBid.metaData
-        }
+        let kvpRequest = GAMRequest()
+        let ubKVP = [
+            "smaub": bidKeyword // make sure you add "smaub" as a Dynamic Key under Inventory >> Key-Values inside of GAM (no value as you will pass that here)
+        ]
+        kvpRequest.customTargeting = ubKVP
     }
-    adView.loadAd()
+    bannerView.load(kvpRequest)
 }
