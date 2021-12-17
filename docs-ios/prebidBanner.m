@@ -6,7 +6,7 @@ bannerView.delegate = self;
                          bannerSize:kSMAUbBannerSizeXXLarge_320x50
                          completion:^(SMAUbBid * _Nullable bid, NSError * _Nullable error) {
     if (bid) {
-        // Let's assume this is the max price
+        // Let's assume this is the max price of your line items (you will want to change this float to yours)
         CGFloat maxPrice = 0.1;
         NSString *bidKeyword;
                                       
