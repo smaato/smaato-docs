@@ -1,34 +1,30 @@
-[MPRewardedVideo setDelegate:self forAdUnitId:@"MOPUB_ADUNIT_ID"];
+@property(nonatomic, strong) GADRewardedAd *rewardedAd;
 [SmaatoSDK prebidRewardedInterstitialForAdSpaceId:@"SMAATO_ADSPACE_ID"
                                        completion:^(SMAUbBid * _Nullable bid, NSError * _Nullable error) {
-    NSString *keywords = @"SOME-OTHER-BID-KEYWORDS"; // could be nil
-    NSDictionary *bidExtra = @{@"SOME-OTHER-KEY" : @"SOME-OTHER-VALUE"}; // could be nil
     if (bid) {
-        // Let's assume this is the max price
+        // Let's assume this is the max price of your line items (you will want to change this float to yours)
         CGFloat maxPrice = 0.1;
-        NSString *bidKeyword;                                          
+        NSString *bidKeyword;
+                                            
         if (bid.bidPrice > maxPrice) {
             bidKeyword = [NSString stringWithFormat:@"smaato_cpm:%.2f", maxPrice];
         } else {
             bidKeyword = bid.mopubPrebidKeyword;
         }
- 
-        keywords = keywords ?  [NSString stringWithFormat:@"%@,%@", keywords, bidKeyword] : bidKeyword;
- 
-        if (bidExtra) {
-            NSMutableDictionary *extras = [NSMutableDictionary dictionaryWithDictionary:bidExtra];
-            [extras addEntriesFromDictionary:bid.metaData];
-            bidExtra = extras;
-        } else {
-            bidExtra = bid.metaData;
-        }
+        
+        GAMRequest kvpRequest = [GAMRequest request];
+        NSDictionary *ubKVP = @{@"smaub":bidKeyword};
+        kvpRequest.customTargeting = ubKVP;
     }
-    [MPRewardedVideo loadRewardedVideoAdWithAdUnitID:@"MOPUB_ADUNIT_ID"
-                                            keywords:keywords
-                                    userDataKeywords:nil
-                                            location:nil
-                                          customerId:nil
-                                   mediationSettings:@[]
-                                         localExtras:bidExtra];
-   } 
+     [GADRewardedAd
+       loadWithAdUnitID:@"YOUR_GAM_AD_UNIT_ID"
+                request:kvpRequest
+      completionHandler:^(GADRewardedAd *ad, NSError *error) {
+        if (error) {
+          NSLog(@"Rewarded ad failed to load with error: %@", [error localizedDescription]);
+          return;
+        }
+        self.rewardedAd = ad;
+        NSLog(@"Rewarded ad loaded.");
+      }];
 ];
