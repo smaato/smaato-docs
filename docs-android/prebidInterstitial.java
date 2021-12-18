@@ -1,10 +1,7 @@
-//...
-MoPubInterstitial mpInterstitial = MoPubInterstitial(context, MOPUB_ADUNIT_ID);
- 
-//...
+private AdManagerInterstitialAd mAdManagerInterstitialAd;
 UnifiedBidding.prebidInterstitial(/*"SMAATO_ADSPACE_ID"*/, (ubBid,  prebidRequestError) -> {
    if (ubBid != null) {
-       // Let's assume this is the max price
+       // Let's assume this is the max price of your line items (you will want to change this float to yours)
        float maxPrice = 0.1F;
  
        String bidKeyword;
@@ -13,15 +10,29 @@ UnifiedBidding.prebidInterstitial(/*"SMAATO_ADSPACE_ID"*/, (ubBid,  prebidReques
        } else {
            bidKeyword = ubBid.mopubPrebidKeyword;
        }
- 
-       String interstitialKeywords = mpInterstitial.getKeywords();
-       interstitialKeywords = TextUtils.isEmpty(adViewKeywords)
-               ? bidKeyword
-               : String.format("%s, %s", adView.keywords, bidKeyword);
-       mpInterstitial.setKeywords(adViewKeywords);
-       mpInterstitial.setLocalExtras(ubBid.metadata);
+       AdManagerAdRequest kvpRequest = new AdManagerAdRequest.Builder().build();
+       Map<String, String> ubKVP = new HashMap<String, String>();
+       ubKVP.put("smaub", bidKeyword);
+       kvpRequest.customTargeting = ubKVP;
+       
    } else if (prebidRequestError != null) {
        /* Timber.e(prebidRequestError.error.toString()) */
    }
-      mpInterstitial.load();
+      AdManagerInterstitialAd.load(this,"YOUR_GAM_AD_UNIT_ID", kvpRequest,
+        new AdManagerInterstitialAdLoadCallback() {
+      @Override
+      public void onAdLoaded(@NonNull AdManagerInterstitialAd interstitialAd) {
+        // The mAdManagerInterstitialAd reference will be null until
+        // an ad is loaded.
+        mAdManagerInterstitialAd = interstitialAd;
+        Log.i(TAG, "onAdLoaded");
+      }
+
+      @Override
+      public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+        // Handle the error
+        Log.i(TAG, loadAdError.getMessage());
+        mAdManagerInterstitialAd = null;
+      }
+    });
 });
