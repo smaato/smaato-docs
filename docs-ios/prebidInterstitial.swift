@@ -1,10 +1,7 @@
-guard let adInterstitial = MPInterstitialAdController.init(forAdUnitId: "MOPUB_ADUNIT") else {
-    return
-}
-adInterstitial.delegate = self
+private var interstitial: GAMInterstitialAd?
 SmaatoSDK.prebidInterstitial(forAdSpaceId: "SMAATO_ADSPACE_ID") { (bid: SMAUbBid?, error: Error?) in
    if let smaatoBid = bid {
-       // Let's assume this is the max price
+       // Let's assume this is the max price of your line items (you will want to change this float to yours)
        let maxPrice : CGFloat = 0.1
        let bidKeyword : String
                  
@@ -13,21 +10,21 @@ SmaatoSDK.prebidInterstitial(forAdSpaceId: "SMAATO_ADSPACE_ID") { (bid: SMAUbBid
        } else {
             bidKeyword = smaatoBid.mopubPrebidKeyword
        }
-       // or manual something like `let bidKeyword = "smaato" + "-" + "\(smaatoBid.bidPrice * 100)"`
-       if let adViewKeywords = adInterstitial.keywords {
-            var filteredKeywords = adViewKeywords.split(separator: ",").filter { !$0.starts(with: "smaato_cpm") }.map { String($0) }
-            filteredKeywords.append(bidKeyword)
-            adInterstitial.keywords = filteredKeywords.joined(separator: ",")
-       } else {
-            adInterstitial.keywords = bidKeyword
-       }
- 
-       // `smaatoBid.metaData` contains unique bid identifier, which is used for creative fetching from cache, if Smaato's bid wins
-       if let adLocalExtras = adInterstitial.localExtras {
-            adInterstitial.localExtras = adLocalExtras.merging(smaatoBid.metaData) { $1 }
-       } else {
-            adInterstitial.localExtras = smaatoBid.metaData
-       }
+       let kvpRequest = GAMRequest()
+       let ubKVP = [
+           "smaub": bidKeyword // make sure you add "smaub" as a Dynamic Key under Inventory >> Key-Values inside of GAM (no value as you will pass that here)
+       ]
+       kvpRequest.customTargeting = ubKVP
    }
-   adInterstitial.loadAd()
+   GAMInterstitialAd.load(withAdUnitID:"YOUR_GAM_AD_UNIT_ID",
+                                request: kvpRequest,
+                      completionHandler: { [self] ad, error in
+                        if let error = error {
+                          print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                          return
+                        }
+                        interstitial = ad
+                        interstitial?.fullScreenContentDelegate = self
+                      }
+    )
 }
