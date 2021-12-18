@@ -13,7 +13,7 @@
         }
         
         GAMRequest kvpRequest = [GAMRequest request];
-        NSDictionary *ubKVP = @{@"smaub":bidKeyword};
+        NSDictionary *ubKVP = @{@"smaub":bidKeyword}; // make sure you add "smaub" as a Dynamic Key under Inventory >> Key-Values inside of GAM (no value as you will pass that here)
         kvpRequest.customTargeting = ubKVP;
     }
      [GADRewardedAd
